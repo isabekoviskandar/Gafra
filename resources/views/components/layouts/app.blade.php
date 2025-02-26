@@ -98,6 +98,13 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="{{ route('clients.index') }}"
+                                            class="nav-link {{ request()->is('clients*') ? 'active' : '' }}">
+                                            <i class="fas fa-user"></i>
+                                            <p>Clients</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="{{ route('roles.index') }}"
                                             class="nav-link {{ request()->is('roles*') ? 'active' : '' }}">
                                             <i class="fas fa-user-shield"></i>

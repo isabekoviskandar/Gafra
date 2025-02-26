@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\PermissionController;
@@ -115,6 +116,16 @@ Route::middleware('check')->group(function () {
         Route::put('/{machine}', [MachineController::class, 'update'])->name('machines.update');
         Route::delete('/{machine}', [MachineController::class, 'destroy'])->name('machines.destroy');
         Route::patch('/{machine}/status', [MachineController::class, 'status'])->name('machines.status');
+    });
+
+    Route::prefix('clients')->group(function () {
+        Route::get('/', [ClientController::class, 'index'])->name('clients.index');
+        Route::get('/create', [ClientController::class, 'create'])->name('clients.create');
+        Route::post('/', [ClientController::class, 'store'])->name('clients.store');
+        Route::get('/{client}/edit', [ClientController::class, 'edit'])->name('clients.edit');
+        Route::put('/{client}', [ClientController::class, 'update'])->name('clients.update');
+        Route::delete('/{client}', [ClientController::class, 'destroy'])->name('clients.destroy');
+        Route::patch('/{client}/status', [ClientController::class, 'status'])->name('clients.status');
     });
 
     Route::prefix('produces')->group(function () {
